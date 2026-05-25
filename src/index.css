@@ -1,0 +1,151 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap");
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sage: var(--sage);
+  --color-sage-dark: var(--sage-dark);
+  --color-sage-soft: var(--sage-soft);
+  --color-sky-brand: var(--sky);
+  --color-sky-soft: var(--sky-soft);
+  --font-display: "Poppins", system-ui, -apple-system, sans-serif;
+  --font-sans: "Open Sans", system-ui, -apple-system, sans-serif;
+}
+
+:root {
+  --radius: 0.5rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.28 0.04 180);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.28 0.04 180);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.28 0.04 180);
+  --primary: oklch(0.45 0.06 165);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.78 0.11 215);
+  --secondary-foreground: oklch(0.2 0.03 200);
+  --muted: oklch(0.97 0.01 200);
+  --muted-foreground: oklch(0.5 0.03 200);
+  --accent: oklch(0.78 0.11 215);
+  --accent-foreground: oklch(0.2 0.03 200);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(0.92 0.01 200);
+  --input: oklch(0.92 0.01 200);
+  --ring: oklch(0.78 0.11 215);
+  --sage: oklch(0.45 0.06 165);
+  --sage-dark: oklch(0.35 0.05 165);
+  --sage-soft: oklch(0.95 0.02 165);
+  --sky: oklch(0.78 0.11 215);
+  --sky-soft: oklch(0.96 0.03 215);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+}
+
+@keyframes reveal-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes hero-zoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.05); }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.reveal {
+  opacity: 0;
+}
+
+.reveal.is-visible {
+  animation: reveal-up 0.7s ease-out forwards;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.8s ease-out forwards;
+}
+
+.animate-hero-zoom {
+  animation: hero-zoom 20s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.5s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal.is-visible,
+  .animate-fade-up,
+  .animate-hero-zoom,
+  .animate-scale-in {
+    opacity: 1;
+    animation: none;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes whatsapp-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+  }
+}
+
+.whatsapp-float {
+  animation: whatsapp-pulse 2s ease-in-out infinite;
+}
+
+.whatsapp-float:hover {
+  animation: none;
+  transform: scale(1.1);
+}
